@@ -26,10 +26,10 @@ print("\27[34m"..[[
    | $$ /$$$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
    |__/|_______/ |__/  |__/ \_______/|__/  \__/ \_______/
                                                                                                                                                                          
->> CH > 
->> CH > 
->> DEVELOPER > 
->> DEVELOPER >
+>> CH > @TSHAKETEAM
+>> CH > @ZX_XX 
+>> DEVELOPER > @TAHAJ20
+>> DEVELOPER > @VVWVV
 ]].."\27[m")
 
 io.popen("mkdir Tshake_Files")
@@ -4760,7 +4760,7 @@ database:del(bot_id.."Tshake:List:Manager"..msg.chat_id_)
 end
 send(msg.chat_id_, msg.id_,"📌┇تم مسح ردود المدير")
 end
-if text == ("الردود") and Owner(msg) then
+if text == ("ردود المدير") and Owner(msg) then
 local list = database:smembers(bot_id.."Tshake:List:Manager"..msg.chat_id_.."")
 text = "📑┇قائمه ردود المدير \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
@@ -5646,7 +5646,7 @@ database:set(bot_id.."Tshake:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "📫┇تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."Tshake:Name:Bot") or "ساكورا") then
+if text == (database:get(bot_id.."Tshake:Name:Bot") or "تشاكي") then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5656,7 +5656,7 @@ send(msg.chat_id_, msg.id_,'👥| لا تستطيع استخدام البوت ي
 end
 return false
 end
-Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "ساكورا")
+Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "تشاكي")
 local namebot = {
 "عمري فداك "..Namebot.. " كول حب ",
 "كول حبيبي ؟ اني "..Namebot,
@@ -5675,7 +5675,7 @@ return false
 end
 
 if text == "بوت" then
-Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "ساكورا")
+Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "تشاكي")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" then 
@@ -7119,8 +7119,8 @@ if text == ("تحديث السورس") and DevTshake(msg) then
 send(msg.chat_id_,msg.id_,'☑┇تم التحديث')
 os.execute('rm -rf Tshake.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/SAKURA241/SAKURA/master/Tshake.lua')
-os.execute('wget https://raw.githubusercontent.com/SAKURA241/SAKURA/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/tshakeabas/Tshake/master/Tshake.lua')
+os.execute('wget https://raw.githubusercontent.com/tshakeabas/Tshake/master/start.lua')
 dofile('Tshake.lua')  
 return false
 end
@@ -7235,12 +7235,12 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
 if DevTshake(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/SAKURA241/files_tshake/master/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/tshakeabas/files_tshake/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n📂┇اهلا بك في متجر ملفات ساكورا \n📮┇الملفات الموجوده حاليا \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n\n"
+local TextS = "\n📂┇اهلا بك في متجر ملفات تشاكي \n📮┇الملفات الموجوده حاليا \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n\n"
 local TextE = "\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n📌┇تدل علامة (✔) الملف مفعل\n".."📌┇تدل علامة (✖) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
@@ -7314,7 +7314,7 @@ t = "*🗂┇ الملف » {"..file.."}\n📬┇ تم تعطيله وحذفه �
 else
 t = "*📬┇ بالتاكيد تم تعطيل وحذف ملف » {"..file.."} \n✓*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/SAKURA241/files_tshake/master/files_tshake/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/tshakeabas/files_tshake/master/files_tshake/"..file)
 if res == 200 then
 os.execute("rm -fr Tshake_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -7334,7 +7334,7 @@ t = "*📬┇ بالتاكيد تم تنزيل وتفعيل ملف » {"..file..
 else
 t = "*🗂┇ الملف » {"..file.."}\n📬┇ تم تنزيله وتفعيله بنجاح \n💥*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/SAKURA241/files_tshake/master/files_tshake/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/tshakeabas/files_tshake/master/files_tshake/"..file)
 if res == 200 then
 local chek = io.open("Tshake_Files/"..file,'w+')
 chek:write(json_file)
@@ -7411,15 +7411,18 @@ end
 Text = [[
 🔰 Welcome to Source 🔰
 
-🌐┇SAKURA TEAM 
+🌐┇TshAkE TEAM 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📊┇ [Source Channel](https://t.me/SAKURATEM)
- ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📋┇ [SAKURA Update](https://t.me/SAKURA57)
+📊┇ [Source Channel](https://t.me/ZX_XX)
+
+📋┇ [TshAkE Dev](https://t.me/TSHAKETEAM)
+
+📁┇ [Source  Files](https://t.me/Tshake_info)
+
+🌐┇ [TshAkE iNDT](https://t.me/ZX_XX/4611)
+ 
  ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
-📧┇ [TWS SAKURA](https://t.me/SAKURATEM_BOT)
- ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-[DEV SAKURA](https://t.me/MMMM_27)
+📧┇ [TWS TshAkE](https://t.me/A_5bot)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
@@ -7442,7 +7445,7 @@ Text = [[
 🎖┇م4 ~⪼ لعرض اوامر المنشئين
 👤┇م5 ~⪼ لعرض اوامر المطورين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @SAKURATEM
+📡┇CH @TSHAKETEAM
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7463,7 +7466,7 @@ Text = [[
 ⏺┇قفل/فتح + الاوامر الادناه 
 ⏺┇قفل/فتح + الامر بالتقيد • بالطرد • بالكتم
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🔐┇ميدو
+🔐┇الروابط
 🔐┇المعرف
 🔐┇التاك
 🔐┇الشارحه
@@ -7489,7 +7492,7 @@ Text = [[
 🔐┇الكلايش
 🔐┇السيلفي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇Ch ~⪼ @SAKURATEM
+📡┇Ch ~⪼ @TSHAKETEAM
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7564,7 +7567,7 @@ Text = [[
 📮┇الصلاحيات
 📮┇الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @SAKURATEM
+📡┇CH @TSHAKETEAM
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7617,7 +7620,7 @@ Text = [[
 تغير رد المميز + النص
 تغير رد العضو + النص
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @SAKURATEM
+📡┇CH @TSHAKETEAM
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7651,7 +7654,7 @@ Text = [[
 ➕┇اضف رسائل + العدد بالرد
 ➕┇اضف مجوهرات + العدد بالرد
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @SAKURATEM
+📡┇CH @TSHAKETEAM
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -7697,7 +7700,7 @@ Text = [[
 ➕┇اذاعه بالتثبيت 
 ➕┇الاحصائيات 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @SAKURATEM
+📡┇CH @TSHAKETEAM
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -8251,8 +8254,8 @@ if text == "تحديث السورس 📥" then
 send(msg.chat_id_,msg.id_,'☑┇تم التحديث')
 os.execute('rm -rf Tshake.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/SAKURA241/SAKURA/master/Tshake.lua')
-os.execute('wget https://raw.githubusercontent.com/SAKURA241/SAKURA/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/tshakeabas/Tshake/master/Tshake.lua')
+os.execute('wget https://raw.githubusercontent.com/tshakeabas/Tshake/master/start.lua')
 dofile('Tshake.lua')  
 return false
 end
@@ -8386,7 +8389,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."Tshake:Name:Bot") or "ساكورا")
+local Name_Bot = (database:get(bot_id.."Tshake:Name:Bot") or "تشاكي")
 if not database:get(bot_id.."Tshake:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
@@ -8572,4 +8575,3 @@ if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ a
 database:sadd(bot_id..'Tshake:Chek:Groups',v)  
 end end,nil)
 end;CleangGroups();end;end
-d;end
