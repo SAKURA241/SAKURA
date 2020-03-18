@@ -4760,7 +4760,7 @@ database:del(bot_id.."Tshake:List:Manager"..msg.chat_id_)
 end
 send(msg.chat_id_, msg.id_,"📌┇تم مسح ردود المدير")
 end
-if text == ("ردود المدير") and Owner(msg) then
+if text == ("الردود") and Owner(msg) then
 local list = database:smembers(bot_id.."Tshake:List:Manager"..msg.chat_id_.."")
 text = "📑┇قائمه ردود المدير \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
@@ -7463,7 +7463,7 @@ Text = [[
 ⏺┇قفل/فتح + الاوامر الادناه 
 ⏺┇قفل/فتح + الامر بالتقيد • بالطرد • بالكتم
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-🔐┇الروابط
+🔐┇ميدو
 🔐┇المعرف
 🔐┇التاك
 🔐┇الشارحه
@@ -8572,3 +8572,4 @@ if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ a
 database:sadd(bot_id..'Tshake:Chek:Groups',v)  
 end end,nil)
 end;CleangGroups();end;end
+d;end
